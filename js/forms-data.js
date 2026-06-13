@@ -52,6 +52,6 @@ const FORMS = [
  *   select the "Leaderboard" tab → Publish
  */
 const LEADERBOARD = {
-  embedUrl:  "https://docs.google.com/spreadsheets/d/1gDzLJzDPWOdX_LMPP4eL6KtU1OeC6_aIb4Aux-ydGHk/pubhtml?gid=934359014&single=true",
+  embedUrl:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOrg_yXxj17OPPssrSJ7gBgxPgGpWflt93mFM3YXcVhR4u2ufrVkDh4mU3ufbA-pYDh2Z5TE-x9D78/pubhtml?gid=934359014&single=true",
   directUrl: "https://docs.google.com/spreadsheets/d/1gDzLJzDPWOdX_LMPP4eL6KtU1OeC6_aIb4Aux-ydGHk/edit?gid=934359014#gid=934359014"
 };
