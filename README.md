@@ -2,7 +2,7 @@
 
 A family prediction game built for FIFA World Cup 2026. Cousins submit match predictions through Google Forms, earn points based on results, and compete on a live leaderboard - all in one place.
 
-**Live site:** [thadeworkshop-wc2026.netlify.app](https://thadeworkshop-wc2026.netlify.app)
+**Live site:** [snladh.github.io/thadeWorkshop_WC2026](https://snladh.github.io/thadeWorkshop_WC2026/)
 
 ---
 
