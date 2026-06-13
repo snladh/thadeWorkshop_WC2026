@@ -161,7 +161,7 @@ a { color: inherit; }
 }
 
 .hero-player-left  { left:  -1rem; }
-.hero-player-right { right: -1rem; }
+.hero-player-right { right: -1rem; height: 74%; max-height: 420px; }
 
 .hero-content {
   position: relative;
