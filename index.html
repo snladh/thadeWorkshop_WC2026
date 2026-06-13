@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WC 2026 Family Challenge</title>
+  <meta name="description" content="World Cup 2026 predictions, leaderboard, and forms for the family challenge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       HEADER
+  ══════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="WC 2026 Family Challenge home">
+          <span class="logo-ball">⚽</span>
+          <div>
+            <div class="logo-title">WC 2026</div>
+            <div class="logo-sub">Family Challenge</div>
+          </div>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="forms.html" class="nav-link">All Forms</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════
+         HERO
+    ══════════════════════════════════ -->
+    <section class="hero" aria-label="Welcome">
+      <div class="container">
+        <p class="hero-eyebrow">🏆 World Cup 2026 · USA · Canada · Mexico</p>
+        <h1 class="hero-title">Family<br>Challenge</h1>
+        <p class="hero-sub">
+          Make predictions, earn points, and settle once and for all
+          who really knows football in this family.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         LEADERBOARD
+    ══════════════════════════════════ -->
+    <section class="section" aria-labelledby="lb-heading">
+      <div class="container">
+        <div class="section-eyebrow">Rankings</div>
+        <h2 class="section-title" id="lb-heading" style="margin-bottom:1.5rem;">Leaderboard</h2>
+        <div class="lb-card">
+          <div>
+            <p class="lb-card-title">🏆 Current Standings</p>
+            <p class="lb-card-desc">
+              See who's leading the pack. Rankings update after each matchday
+              as results come in and scores are tallied.
+            </p>
+          </div>
+          <button class="btn btn-gold" id="lb-toggle" aria-haspopup="dialog">
+            View Standings →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         UPCOMING FORMS
+    ══════════════════════════════════ -->
+    <section class="section section-alt" aria-labelledby="forms-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">Predictions</div>
+            <h2 class="section-title" id="forms-heading">Upcoming Forms</h2>
+          </div>
+          <a href="forms.html" class="btn btn-outline">View All Forms →</a>
+        </div>
+
+        <div class="forms-grid" id="forms-grid" aria-live="polite">
+          <div class="forms-empty" id="forms-empty">
+            <p>No active forms right now. Check back soon! ⚽</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════
+       LEADERBOARD MODAL
+  ══════════════════════════════════ -->
+  <div class="modal-overlay" id="lb-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="modal-title">🏆 Leaderboard</h2>
+        <button class="modal-close-btn" id="lb-close" aria-label="Close leaderboard">✕</button>
+      </div>
+      <div class="modal-body">
+        <!--
+          The iframe will only display properly once you publish the sheet:
+          Google Sheets → File → Share → Publish to web →
+          choose the "Leaderboard" tab → click Publish → OK
+        -->
+        <iframe
+          id="lb-iframe"
+          title="WC 2026 Family Leaderboard"
+          loading="lazy"
+        ></iframe>
+        <p class="modal-fallback">
+          Not loading?
+          <a href="https://docs.google.com/spreadsheets/d/1gDzLJzDPWOdX_LMPP4eL6KtU1OeC6_aIb4Aux-ydGHk/edit?gid=934359014#gid=934359014"
+             target="_blank" rel="noopener noreferrer">
+            Open in Google Sheets ↗
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>⚽ WC 2026 Family Challenge &mdash; May the best predictor win!</p>
+    </div>
+  </footer>
+
+  <script src="js/forms-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

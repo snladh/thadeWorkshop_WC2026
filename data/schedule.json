@@ -1,0 +1,26 @@
+{
+  "note": "All kick-off times are local US times as listed. Source: Al Jazeera / FIFA WC 2026 schedule.",
+  "deadlineLogic": "Deadline = 11 PM NPT (UTC+05:45) on the US calendar date of the matchday. 11 PM NPT = 17:15 UTC = 1:15 PM ET = 10:15 AM PT.",
+  "matches": [
+    { "id": 1,  "date": "2026-06-11", "home": "Mexico",       "away": "South Africa", "kickoff": "1pm CST"  },
+    { "id": 2,  "date": "2026-06-11", "home": "South Korea",  "away": "Czechia",      "kickoff": "8pm CST"  },
+    { "id": 3,  "date": "2026-06-12", "home": "Canada",       "away": "Bosnia",       "kickoff": "3pm ET"   },
+    { "id": 4,  "date": "2026-06-12", "home": "USA",          "away": "Paraguay",     "kickoff": "6pm PT"   },
+    { "id": 5,  "date": "2026-06-13", "home": "Qatar",        "away": "Switzerland",  "kickoff": "12pm PT"  },
+    { "id": 6,  "date": "2026-06-13", "home": "Brazil",       "away": "Morocco",      "kickoff": "6pm ET"   },
+    { "id": 7,  "date": "2026-06-13", "home": "Haiti",        "away": "Scotland",     "kickoff": "9pm ET"   },
+    { "id": 8,  "date": "2026-06-13", "home": "Australia",    "away": "Türkiye",      "kickoff": "6pm PT"   },
+    { "id": 9,  "date": "2026-06-14", "home": "Germany",      "away": "Curaçao",      "kickoff": "12pm CDT" },
+    { "id": 10, "date": "2026-06-14", "home": "Netherlands",  "away": "Japan",        "kickoff": "3pm CDT"  },
+    { "id": 11, "date": "2026-06-14", "home": "Ivory Coast",  "away": "Ecuador",      "kickoff": "7pm ET"   },
+    { "id": 12, "date": "2026-06-14", "home": "Sweden",       "away": "Tunisia",      "kickoff": "8pm CST"  },
+    { "id": 13, "date": "2026-06-15", "home": "Spain",        "away": "Cape Verde",   "kickoff": "12pm ET"  },
+    { "id": 14, "date": "2026-06-15", "home": "Belgium",      "away": "Egypt",        "kickoff": "12pm PT"  },
+    { "id": 15, "date": "2026-06-15", "home": "Saudi Arabia", "away": "Uruguay",      "kickoff": "6pm ET"   },
+    { "id": 16, "date": "2026-06-15", "home": "Iran",         "away": "New Zealand",  "kickoff": "6pm PT"   },
+    { "id": 17, "date": "2026-06-16", "home": "France",       "away": "Senegal",      "kickoff": "3pm ET"   },
+    { "id": 18, "date": "2026-06-16", "home": "Iraq",         "away": "Norway",       "kickoff": "6pm ET"   },
+    { "id": 19, "date": "2026-06-16", "home": "Argentina",    "away": "Algeria",      "kickoff": "8pm CDT"  },
+    { "id": 20, "date": "2026-06-16", "home": "Austria",      "away": "Jordan",       "kickoff": "9pm PT"   }
+  ]
+}
