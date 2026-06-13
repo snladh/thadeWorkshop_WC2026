@@ -1,22 +1,21 @@
 /* ── Leaderboard modal ── */
-const lbToggle   = document.getElementById('lb-toggle');
-const lbModal    = document.getElementById('lb-modal');
-const lbClose    = document.getElementById('lb-close');
+const lbToggle    = document.getElementById('lb-toggle');
+const lbModal     = document.getElementById('lb-modal');
+const lbClose     = document.getElementById('lb-close');
 const lbContainer = document.getElementById('lb-table-container');
-let   lbLoaded   = false;
+let   lbRefreshInterval = null;
 
 function openModal() {
   lbModal.classList.add('open');
   document.body.style.overflow = 'hidden';
-  if (!lbLoaded) {
-    fetchLeaderboard();
-    lbLoaded = true;
-  }
+  fetchLeaderboard();
+  lbRefreshInterval = setInterval(fetchLeaderboard, 60_000);
 }
 
 function closeModal() {
   lbModal.classList.remove('open');
   document.body.style.overflow = '';
+  clearInterval(lbRefreshInterval);
 }
 
 lbToggle.addEventListener('click', openModal);
