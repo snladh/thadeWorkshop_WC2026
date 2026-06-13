@@ -111,6 +111,20 @@ a { color: inherit; }
   pointer-events: none;
 }
 
+.hero::after {
+  content: '🏆';
+  position: absolute;
+  font-size: 28rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  filter: grayscale(30%);
+}
+
 .hero-eyebrow {
   display: inline-block;
   font-size: 0.72rem;
