@@ -1,16 +1,16 @@
 /* ── Leaderboard modal ── */
-const lbToggle  = document.getElementById('lb-toggle');
-const lbModal   = document.getElementById('lb-modal');
-const lbClose   = document.getElementById('lb-close');
-const lbIframe  = document.getElementById('lb-iframe');
-let   iframeReady = false;
+const lbToggle   = document.getElementById('lb-toggle');
+const lbModal    = document.getElementById('lb-modal');
+const lbClose    = document.getElementById('lb-close');
+const lbContainer = document.getElementById('lb-table-container');
+let   lbLoaded   = false;
 
 function openModal() {
   lbModal.classList.add('open');
   document.body.style.overflow = 'hidden';
-  if (!iframeReady) {
-    lbIframe.src = LEADERBOARD.embedUrl;
-    iframeReady  = true;
+  if (!lbLoaded) {
+    fetchLeaderboard();
+    lbLoaded = true;
   }
 }
 
@@ -23,6 +23,54 @@ lbToggle.addEventListener('click', openModal);
 lbClose .addEventListener('click', closeModal);
 lbModal .addEventListener('click', e => { if (e.target === lbModal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ── Leaderboard: fetch CSV and render custom table ── */
+async function fetchLeaderboard() {
+  lbContainer.innerHTML = '<p class="lb-loading">Loading standings...</p>';
+  try {
+    const res  = await fetch(LEADERBOARD.csvUrl);
+    if (!res.ok) throw new Error();
+    const text = await res.text();
+    renderLeaderboard(text);
+  } catch {
+    lbContainer.innerHTML = `
+      <p class="lb-error">
+        Could not load standings.
+        <a href="${LEADERBOARD.directUrl}" target="_blank" rel="noopener noreferrer">Open in Google Sheets</a>
+      </p>`;
+  }
+}
+
+function renderLeaderboard(csv) {
+  // Parse CSV, keep only rows where column 0 is a number (skip title/header rows)
+  const rows = csv.trim().split('\n')
+    .map(line => line.split(',').map(c => c.replace(/^"|"$/g, '').trim()))
+    .filter(r => r[0] && !isNaN(parseInt(r[0], 10)));
+
+  if (!rows.length) {
+    lbContainer.innerHTML = '<p class="lb-empty">No standings yet. Check back after matchday!</p>';
+    return;
+  }
+
+  const items = rows.map(r => ({
+    rank:   parseInt(r[0], 10),
+    name:   r[1] || '',
+    points: r[2] || '0'
+  }));
+
+  const html = items.map(item => {
+    const cls    = item.rank === 1 ? 'rank-gold' : item.rank === 2 ? 'rank-silver' : item.rank === 3 ? 'rank-bronze' : '';
+    const medal  = item.rank === 1 ? '🥇' : item.rank === 2 ? '🥈' : item.rank === 3 ? '🥉' : `#${item.rank}`;
+    return `
+      <div class="lb-row ${cls}">
+        <span class="lb-rank">${medal}</span>
+        <span class="lb-name">${item.name}</span>
+        <span class="lb-pts">${item.points}<span class="lb-pts-label"> pts</span></span>
+      </div>`;
+  }).join('');
+
+  lbContainer.innerHTML = `<div class="lb-list">${html}</div>`;
+}
 
 /* ── Upcoming forms ── */
 const THREE_HRS_MS = 3 * 60 * 60 * 1000;
@@ -56,13 +104,13 @@ function fmtDeadline(str) {
 }
 
 function buildCard(f) {
-  const past    = isPast(f);
-  const left    = timeLeft(f.deadline);
-  const urgent  = isUrgent(f.deadline);
+  const past   = isPast(f);
+  const left   = timeLeft(f.deadline);
+  const urgent = isUrgent(f.deadline);
 
   const el = document.createElement('article');
-  el.className   = `form-card${past ? ' is-closed' : ''}`;
-  el.dataset.id  = f.id;
+  el.className  = `form-card${past ? ' is-closed' : ''}`;
+  el.dataset.id = f.id;
 
   el.innerHTML = `
     <div class="fc-top">
@@ -79,7 +127,7 @@ function buildCard(f) {
     </div>
     <a class="btn btn-form${past ? ' btn-disabled' : ''}"
        ${past ? 'aria-disabled="true" tabindex="-1"' : `href="${f.url}" target="_blank" rel="noopener noreferrer"`}>
-      ${past ? '🔒 Form Closed' : '📝 Fill Out Form →'}
+      ${past ? '🔒 Form Closed' : '📝 Fill Out Form'}
     </a>
   `;
   return el;
@@ -110,5 +158,5 @@ function tick() {
 }
 
 renderUpcoming();
-setInterval(tick,          1_000);
-setInterval(renderUpcoming, 60_000); // re-check 3-hr window every minute
+setInterval(tick,           1_000);
+setInterval(renderUpcoming, 60_000);
