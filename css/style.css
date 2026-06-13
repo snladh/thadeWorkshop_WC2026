@@ -144,6 +144,20 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
+/* ── Hero Banner Image ── */
+.hero-banner {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto 0;
+  padding: 0 1.5rem 2rem;
+}
+.hero-banner img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  display: block;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
 /* ── Sections ── */
 .section     { padding: 4.5rem 0; }
 .section-alt { background: rgba(255,255,255,0.018); }
