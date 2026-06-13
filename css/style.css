@@ -111,19 +111,6 @@ a { color: inherit; }
   pointer-events: none;
 }
 
-.hero::after {
-  content: '🏆';
-  position: absolute;
-  font-size: 28rem;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.045;
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-  filter: grayscale(30%);
-}
 
 .hero-eyebrow {
   display: inline-block;
@@ -158,16 +145,26 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
-/* ── Hero Official Logo ── */
-.hero-logo {
-  margin: 2rem auto 0;
-  max-width: 320px;
+/* ── Hero background logo watermark ── */
+.hero-logo-bg {
+  position: absolute;
+  width: min(580px, 85%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
 }
-.hero-logo img {
+.hero-logo-bg img {
   width: 100%;
   display: block;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 24px rgba(245,161,0,0.25));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Rivalry banner inside leaderboard modal ── */
