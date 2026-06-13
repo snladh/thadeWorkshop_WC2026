@@ -145,26 +145,31 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
-/* ── Hero background logo watermark ── */
-.hero-logo-bg {
+/* ── Hero player renders ── */
+.hero-player {
   position: absolute;
-  width: min(580px, 85%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.1;
+  bottom: 0;
+  height: 88%;
+  max-height: 500px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
   pointer-events: none;
   z-index: 0;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%);
+  mask-image: linear-gradient(to top, transparent 0%, black 22%);
 }
-.hero-logo-bg img {
-  width: 100%;
-  display: block;
-  mix-blend-mode: screen;
-}
+
+.hero-player-left  { left:  -1rem; }
+.hero-player-right { right: -1rem; }
 
 .hero-content {
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .hero-player { height: 55%; opacity: 0.35; }
 }
 
 /* ── Rivalry banner inside leaderboard modal ── */
