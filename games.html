@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games – WC 2026 Family Challenge</title>
+  <meta name="description" content="Mini games for the WC 2026 Family Challenge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="WC 2026 Family Challenge home">
+          <span class="logo-ball">⚽</span>
+          <div>
+            <div class="logo-title">WC 2026</div>
+            <div class="logo-sub">Family Challenge</div>
+          </div>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="forms.html" class="nav-link">All Forms</a>
+          <a href="games.html" class="nav-link active">Games</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-intro">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="section-eyebrow">Mini Games</div>
+        <h1 class="section-title">Games</h1>
+        <p class="page-desc">Take a break from predictions and challenge the family on the pitch.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="games-grid">
+
+          <!-- Dribble Rush -->
+          <div class="game-card" id="play-dribble-rush">
+            <div class="game-card-icon">⚽</div>
+            <h3 class="game-card-title">Dribble Rush</h3>
+            <p class="game-card-desc">Pick your player, dribble the ball, and leap over obstacles. How far can you go?</p>
+            <button class="btn btn-gold">Play Now</button>
+          </div>
+
+          <!-- WIP -->
+          <div class="game-card game-card-wip">
+            <div class="game-card-icon">🎯</div>
+            <h3 class="game-card-title">Penalty Shootout</h3>
+            <p class="game-card-desc">Step up to the spot and score past the keeper under pressure.</p>
+            <span class="wip-badge">Coming Soon</span>
+          </div>
+
+          <div class="game-card game-card-wip">
+            <div class="game-card-icon">🃏</div>
+            <h3 class="game-card-title">Squad Builder</h3>
+            <p class="game-card-desc">Build your ultimate WC 2026 squad within a tight budget.</p>
+            <span class="wip-badge">Coming Soon</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══ GAME MODAL ══ -->
+  <div class="modal-overlay" id="game-modal" role="dialog" aria-modal="true">
+    <div class="modal-box game-modal-box">
+      <div class="modal-head">
+        <h2>⚽ Dribble Rush</h2>
+        <button class="modal-close-btn" id="game-close" aria-label="Close">✕</button>
+      </div>
+
+      <!-- Phase 1: Character -->
+      <div class="game-phase" id="phase-character">
+        <p class="phase-title">Choose Your Player</p>
+        <div class="character-grid">
+          <button class="char-btn ronaldo-btn" data-char="ronaldo">
+            <span class="char-number">7</span>
+            <span class="char-name">Ronaldo</span>
+            <span class="char-team">Portugal</span>
+          </button>
+          <button class="char-btn messi-btn" data-char="messi">
+            <span class="char-number">10</span>
+            <span class="char-name">Messi</span>
+            <span class="char-team">Argentina</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Phase 2: Name -->
+      <div class="game-phase hidden" id="phase-name">
+        <p class="phase-title">Enter Your Name</p>
+        <div class="name-entry">
+          <input type="text" id="player-name-input" maxlength="10" placeholder="Max 10 characters" autocomplete="off" />
+          <button class="btn btn-gold" id="start-game-btn">Let's Go! →</button>
+        </div>
+      </div>
+
+      <!-- Phase 3: Game -->
+      <div class="game-phase hidden" id="phase-game">
+        <div class="game-layout">
+          <div class="game-canvas-wrap">
+            <div class="game-hud">
+              <span id="game-score-display">Score: 0</span>
+              <span class="game-hint">Space / Click / Tap to jump</span>
+            </div>
+            <canvas id="game-canvas" width="700" height="210"></canvas>
+            <div class="gameover-overlay hidden" id="gameover-overlay">
+              <p class="go-label">GAME OVER</p>
+              <p class="go-score" id="go-score-text">Score: 0</p>
+              <p class="go-record hidden" id="go-record">🏆 New Top 3!</p>
+              <button class="btn btn-gold" id="restart-btn">Play Again</button>
+            </div>
+          </div>
+          <div class="game-sidebar">
+            <p class="sidebar-title">🏆 Top 3</p>
+            <div id="game-lb-list"><p class="game-lb-empty">No scores yet</p></div>
+            <div class="more-games-wip">
+              <p class="wip-section-title">More Games</p>
+              <p class="wip-item">🎯 Penalty Shootout <span class="wip-badge">WIP</span></p>
+              <p class="wip-item">🃏 Squad Builder <span class="wip-badge">WIP</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Jay Lakuwa Kot Kalika! May the best win!!</p>
+      <p style="margin-top:0.4rem;">&copy; ThadeWorkshop 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
