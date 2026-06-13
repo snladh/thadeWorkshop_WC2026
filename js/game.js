@@ -191,7 +191,7 @@ function update() {
   nextObs--;
   if (nextObs <= 0) {
     obstacles.push({ x: canvas.width + 20, scored: false });
-    nextObs = obsInterval;
+    nextObs = obsInterval + Math.floor(Math.random() * 51) - 25;
   }
 
   /* Move obstacles + score */
