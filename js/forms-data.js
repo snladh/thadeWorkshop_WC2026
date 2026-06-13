@@ -40,6 +40,30 @@ const FORMS = [
     name: "M08 · Australia vs Turkiye",
     url: "https://forms.gle/n1pocqzirY9dQVkP9",
     deadline: "2026-06-13T23:00:00+05:45"
+  },
+  {
+    id: 9,
+    name: "M09 · Germany vs Curacao",
+    url: "https://forms.gle/e9wve6X1cuFqy2Hs9",
+    deadline: "2026-06-14T20:30:00+05:45"
+  },
+  {
+    id: 10,
+    name: "M10 · Netherlands vs Japan",
+    url: "https://forms.gle/6gL26YBwDWKV5wRKA",
+    deadline: "2026-06-14T23:00:00+05:45"
+  },
+  {
+    id: 11,
+    name: "M11 · Ivory Coast vs Ecuador",
+    url: "https://forms.gle/6oGrFbiJDj54svgm6",
+    deadline: "2026-06-14T23:00:00+05:45"
+  },
+  {
+    id: 12,
+    name: "M12 · Sweden vs Tunisia",
+    url: "https://forms.gle/oa51K2kc5pZeFHW66",
+    deadline: "2026-06-14T23:00:00+05:45"
   }
 ];
 
