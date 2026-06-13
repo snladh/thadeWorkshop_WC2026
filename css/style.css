@@ -42,18 +42,19 @@ a { color: inherit; }
 .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* ── Fixed background logo ── */
-.bg-logo {
+body::before {
+  content: '';
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 480px;
   max-width: 55vw;
+  aspect-ratio: 1;
+  background: url('../images/wc2026-logo.png') no-repeat center / contain;
   opacity: 0.06;
   pointer-events: none;
-  user-select: none;
   z-index: -1;
-  filter: grayscale(1);
 }
 
 /* ── Header ── */
