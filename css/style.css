@@ -158,8 +158,8 @@ a { color: inherit; }
   mask-image: linear-gradient(to top, transparent 0%, black 10%);
 }
 
-.hero-player-left  { left:  -1rem; height: 124%; max-height: 720px; bottom: -6rem; }
-.hero-player-right { right: -1rem; height: 76%; max-height: 440px; }
+.hero-player-left  { left:  -1rem; height: 76%;  max-height: 440px; transform: scaleX(-1); }
+.hero-player-right { right: -1rem; height: 124%; max-height: 720px; bottom: -6rem; transform: scaleX(-1); }
 
 .hero-content {
   position: relative;
