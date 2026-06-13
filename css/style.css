@@ -149,19 +149,17 @@ a { color: inherit; }
 .hero-player {
   position: absolute;
   bottom: 0;
-  height: 88%;
-  max-height: 500px;
   width: auto;
   object-fit: contain;
-  object-position: bottom;
+  object-position: bottom center;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%);
-  mask-image: linear-gradient(to top, transparent 0%, black 22%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 10%);
+  mask-image: linear-gradient(to top, transparent 0%, black 10%);
 }
 
-.hero-player-left  { left:  -1rem; }
-.hero-player-right { right: -1rem; height: 74%; max-height: 420px; }
+.hero-player-left  { left:  -1rem; height: 90%; max-height: 530px; }
+.hero-player-right { right: -1rem; height: 76%; max-height: 440px; }
 
 .hero-content {
   position: relative;
@@ -169,7 +167,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 640px) {
-  .hero-player { height: 55%; opacity: 0.35; }
+  .hero-player { height: 50%; opacity: 0.35; }
 }
 
 /* ── Rivalry banner inside leaderboard modal ── */
