@@ -41,6 +41,21 @@ a { color: inherit; }
 /* ── Layout ── */
 .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
 
+/* ── Fixed background logo ── */
+.bg-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  max-width: 60vw;
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  filter: grayscale(1);
+}
+
 /* ── Header ── */
 .site-header {
   position: sticky;
