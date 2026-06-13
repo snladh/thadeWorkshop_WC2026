@@ -158,18 +158,42 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
-/* ── Hero Banner Image ── */
-.hero-banner {
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto 0;
-  padding: 0 1.5rem 2rem;
+/* ── Hero Official Logo ── */
+.hero-logo {
+  margin: 2rem auto 0;
+  max-width: 320px;
 }
-.hero-banner img {
+.hero-logo img {
   width: 100%;
-  border-radius: var(--r-lg);
   display: block;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 24px rgba(245,161,0,0.25));
+}
+
+/* ── Rivalry banner inside leaderboard modal ── */
+.modal-rivalry {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.modal-rivalry img {
+  width: 100%;
+  display: block;
+  border-radius: var(--r);
+}
+.modal-rivalry-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
 }
 
 /* ── Sections ── */
