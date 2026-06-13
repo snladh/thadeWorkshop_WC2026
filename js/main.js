@@ -54,8 +54,8 @@ function renderLeaderboard(csv) {
   const items = rows.map(r => ({
     rank:   parseInt(r[0], 10),
     name:   r[1] || '',
-    points: r[2] || '0'
-  }));
+    points: parseInt(r[2], 10) || 0
+  })).sort((a, b) => a.rank - b.rank || b.points - a.points);
 
   const html = items.map(item => {
     const cls    = item.rank === 1 ? 'rank-gold' : item.rank === 2 ? 'rank-silver' : item.rank === 3 ? 'rank-bronze' : '';
