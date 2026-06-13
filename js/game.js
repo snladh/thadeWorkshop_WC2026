@@ -190,14 +190,25 @@ function update() {
   /* Spawn obstacle */
   nextObs--;
   if (nextObs <= 0) {
-    obstacles.push({ x: canvas.width + 20, scored: false });
-    nextObs = obsInterval + Math.floor(Math.random() * 51) - 25;
+    const wide = Math.random() < 0.1;
+    obstacles.push({ x: canvas.width + 20, scored: false, w: wide ? OBS_W * 2 : OBS_W });
+
+    /* Trimodal gap: 20% close, 35% normal, 45% long */
+    const roll = Math.random();
+    if (roll < 0.20) {
+      nextObs = Math.floor(obsInterval * 0.45 + Math.random() * 20);
+    } else if (roll < 0.55) {
+      nextObs = Math.floor(obsInterval * 0.8  + Math.random() * obsInterval * 0.45);
+    } else {
+      nextObs = Math.floor(obsInterval * 1.1  + Math.random() * obsInterval * 1.1);
+    }
+    nextObs = Math.max(nextObs, 45);
   }
 
   /* Move obstacles + score */
   for (const o of obstacles) {
     o.x -= speed;
-    if (!o.scored && o.x + OBS_W < PLAYER_X) {
+    if (!o.scored && o.x + o.w < PLAYER_X) {
       o.scored = true;
       score++;
       scoreDisplay.textContent = `Score: ${score}`;
@@ -211,7 +222,7 @@ function update() {
   for (const o of obstacles) {
     const hit =
       PLAYER_X + 8  > o.x + 2 &&
-      PLAYER_X - 8  < o.x + OBS_W - 2 &&
+      PLAYER_X - 8  < o.x + o.w - 2 &&
       playerY       > GROUND_Y - OBS_H + 4;
     if (hit) { endGame(); return; }
   }
@@ -378,20 +389,21 @@ function drawBall() {
 
 function drawObstacle(obs) {
   const x  = obs.x;
+  const w  = obs.w;
   const yt = GROUND_Y - OBS_H;
 
   /* Posts */
   ctx.fillStyle = '#16a34a';
-  ctx.fillRect(x,              yt, 6, OBS_H);
-  ctx.fillRect(x + OBS_W - 6, yt, 6, OBS_H);
+  ctx.fillRect(x,         yt, 6, OBS_H);
+  ctx.fillRect(x + w - 6, yt, 6, OBS_H);
 
   /* Crossbar */
   ctx.fillStyle = '#22c55e';
-  ctx.fillRect(x, yt, OBS_W, 6);
+  ctx.fillRect(x, yt, w, 6);
 
   /* Crossbar shine */
   ctx.fillStyle = 'rgba(255,255,255,0.18)';
-  ctx.fillRect(x + 1, yt + 1, OBS_W - 2, 2);
+  ctx.fillRect(x + 1, yt + 1, w - 2, 2);
 }
 
 /* ═══════════════════════════════════════════
